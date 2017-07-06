@@ -1,0 +1,22 @@
+{
+  "name": "System.IO.Abstractions",
+  "version": "3.0.0",
+  "description": "IO Abstractions",
+  "main": "index.js",
+  "files": [
+    "lib",
+    "scripts"
+  ],
+  "scripts": {
+    "test": "dotnet build /t:restore && dotnet test ./System.IO.AbstractionsTests/System.IO.AbstractionsTests.csproj",
+    "build": "dotnet clean && dotnet build /t:restore && dotnet pack --include-symbols --include-source && rm -f lib/*.nupkg && find System.IO.Abstractions/* -name *.nupkg -exec cp {} lib \\;",
+    "demo": "cd System.IO.AbstractionsDemo && dotnet run",
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0"
+  }
+}
